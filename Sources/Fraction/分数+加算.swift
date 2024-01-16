@@ -8,4 +8,8 @@ extension 分数 {
       分母: 最小公倍数
     )
   }
+
+  public static func += (lhs: inout Self, rhs: Self) {
+    lhs = lhs + rhs
+  }
 }

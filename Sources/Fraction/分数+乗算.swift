@@ -7,4 +7,8 @@ extension 分数 {
       分母: lhs.分母 * rhs.分母
     )
   }
+
+  public static func *= (lhs: inout Self, rhs: Self) {
+    lhs = lhs * rhs
+  }
 }

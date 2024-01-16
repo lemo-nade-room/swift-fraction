@@ -6,4 +6,8 @@ extension 分数 {
     rhs.分子 *= -1
     return lhs + rhs
   }
+
+  public static func -= (lhs: inout Self, rhs: Self) {
+    lhs = lhs - rhs
+  }
 }

@@ -29,4 +29,13 @@ final class 減算Tests: XCTestCase {
 
     XCTAssertEqual(result, "13 / 72")
   }
+
+  func test分数の減算代入() {
+    var a: 分数 = 6.23
+    let b: 分数 = 3.12
+
+    a -= b
+
+    XCTAssertEqual(a, 3.11)
+  }
 }

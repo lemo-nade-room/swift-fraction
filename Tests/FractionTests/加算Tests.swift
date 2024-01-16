@@ -29,4 +29,13 @@ final class 加算Tests: XCTestCase {
 
     XCTAssertEqual(result, "17 / 72")
   }
+
+  func test分数の代入加算() {
+    var a: 分数 = 5.8
+    let b: 分数 = "1 / 2"
+
+    a += b
+
+    XCTAssertEqual(a, 6.3)
+  }
 }
