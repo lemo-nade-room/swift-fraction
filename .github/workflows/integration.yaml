@@ -1,0 +1,27 @@
+name: Integration
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  test:
+    name: XCTest
+    runs-on: ubuntu-22.04
+    container:
+      image: swift:5.9-jammy
+    steps:
+      - uses: actions/checkout@v3
+      - run: swift test
+  lint:
+    name: Lint
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Lint
+        uses: mtgto/swift-format-action@main
+        with:
+          all_files: true
+          max_warnings: 0
