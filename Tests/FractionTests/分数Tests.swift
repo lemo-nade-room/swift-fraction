@@ -44,4 +44,23 @@ final class 分数Tests: XCTestCase {
     XCTAssertEqual(fraction.分子, 1)
     XCTAssertEqual(fraction.分母, 3)
   }
+
+  func test整数の分数を文字列に表す() {
+    let a: 分数 = 3
+
+    XCTAssertEqual(a.description, "3")
+  }
+
+  func test小数の分数を文字列に表す() {
+    let a: 分数 = 0.3
+
+    XCTAssertEqual(a.description, "0.3")
+  }
+
+  func test分数を文字列に表す() {
+    let a: 分数 = -1
+    let b: 分数 = 3
+
+    XCTAssertEqual((a / b).description, "- 1 / 3")
+  }
 }

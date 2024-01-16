@@ -6,9 +6,10 @@ public struct 分数: Hashable, Codable, Sendable {
   public var 分母: Int
 
   public init(分子: Int, 分母: Int) {
-    let 最大公約数 = 分子.最大公約数(分母)
-    self.分子 = 分子 / 最大公約数
-    self.分母 = 分母 / 最大公約数
+    let 最大公約数 = abs(分子.最大公約数(分母))
+    let is負の分母 = 分母 < 0
+    self.分子 = 分子 / 最大公約数 * (is負の分母 ? -1 : 1)
+    self.分母 = 分母 / 最大公約数 * (is負の分母 ? -1 : 1)
   }
 }
 
@@ -57,5 +58,17 @@ extension 分数: Comparable {
     let 通分後の左辺分子 = lhs.分子 * (最小公倍数 / lhs.分母)
     let 通分後の右辺分子 = rhs.分子 * (最小公倍数 / rhs.分母)
     return 通分後の左辺分子 < 通分後の右辺分子
+  }
+}
+
+extension 分数: CustomStringConvertible {
+  public var description: String {
+    if 分母 == 1 {
+      return String(分子)
+    }
+    if 分数(floatLiteral: Double(分子) / Double(分母)) == self {
+      return String(Double(分子) / Double(分母))
+    }
+    return "\(分子 < 0 ? "-" : "") \(abs(分子)) / \(分母)"
   }
 }

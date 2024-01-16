@@ -36,6 +36,7 @@ final class 乗算Tests: XCTestCase {
 
     a *= b
 
-    XCTAssertEqual(a, -0.15)
+    let expected: 分数 = -0.15
+    XCTAssertEqual(a, expected)
   }
 }
