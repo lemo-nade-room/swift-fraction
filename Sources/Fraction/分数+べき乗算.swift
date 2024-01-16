@@ -10,7 +10,7 @@ infix operator ** : べき乗Precedence
 infix operator **= : AssignmentPrecedence
 
 extension 分数 {
-  static func ** (lhs: Self, rhs: Int) -> Self {
+  public static func ** (lhs: Self, rhs: Int) -> Self {
     let 指数 = abs(rhs)
     let is負の指数 = rhs < 0
     let result: 分数 =
@@ -28,7 +28,7 @@ extension 分数 {
     return is負の指数 ? result.逆数 : result
   }
 
-  static func **= (lhs: inout Self, rhs: Int) {
+  public static func **= (lhs: inout Self, rhs: Int) {
     lhs = lhs ** rhs
   }
 }
